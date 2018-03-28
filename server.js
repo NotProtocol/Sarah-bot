@@ -8,7 +8,7 @@ app.get("/", (request, response) => {
 });
 
 var cp = require('child_process');
-cp.fork(__dirname + '/app.js');
+cp.fork(__dirname + '/shards/shards.js');
 
 app.listen(process.env.PORT);
 setInterval(() => {

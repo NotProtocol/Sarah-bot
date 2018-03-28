@@ -1,6 +1,8 @@
-module.exports.run = async(client,message,args,db,Discord) =>{
-       if (message.channel.nsfw) {
-	const { get } = require('snekfetch');
+exports.run = async(client, message, args) => {
+const Discord = require('discord.js');
+const embed = new Discord.RichEmbed();
+const { get } = require('snekfetch');
+exports.run = async(client, message, args) => {
 				const { body } = await get('https://nekos.life/api/neko');
                       var embed = new Discord.RichEmbed()
             .setTitle('Random neko image')
@@ -9,10 +11,5 @@ module.exports.run = async(client,message,args,db,Discord) =>{
             .setFooter("Neko",client.user.avatarURL)
             .setTimestamp();
 			message.channel.send(embed);
-	} else {
-		message.channel.send("You are not in a NSFW marked channel!")
-  }
-}
-exports.config = {
-    command :"neko"
+	}
 }

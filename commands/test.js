@@ -1,6 +1,3 @@
-module.exports.run = async(client,message,args,db) =>{
-        message.channel.send("Test done lol k bye")
-    }
-exports.config = {
-    command :"test"
+exports.run = (client, message, args) => {
+    message.channel.send("You've executed the damn test, good job...").catch(console.error);
 }

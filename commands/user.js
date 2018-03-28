@@ -1,5 +1,7 @@
-module.exports.run = async(client,message,args,db,Discord) =>{
- var mentions = message.mentions.users.filter(user=>{if(user !== client.user) return user;}).first();
+const db = require("quick.db")
+const Discord = require("discord.js")
+exports.run = (client, message, args) => { 
+var mentions = message.mentions.users.filter(user=>{if(user !== client.user) return user;}).first();
   
     var tagged = message.guild.member(mentions)||message.member;
     let avataruser= tagged.user.displayAvatarURL;
@@ -20,7 +22,4 @@ module.exports.run = async(client,message,args,db,Discord) =>{
       .setColor('RANDOM')
         );
     });
-}
-exports.config = {
-    command :"user"
 }

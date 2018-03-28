@@ -1,5 +1,6 @@
-module.exports.run = async(client,message,args,db) =>{
-      var gprereset='';
+  const db = require("quick.db")
+exports.run = (client, message, args) => {
+var gprereset='';
     if(!message.member.hasPermission("ADMINISTRATOR")){ 
         message.channel.send("You need server administrator permissions to change custom prefix!");
         return;
@@ -22,7 +23,4 @@ module.exports.run = async(client,message,args,db) =>{
         
         message.channel.send(`Set the prefix to: **${i.prefix}**`);
     })
-    }
-exports.config = {
-    command :"set-prefix"
 }

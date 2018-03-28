@@ -1,6 +1,7 @@
 const { get } = require("snekfetch");
-module.exports.run = async(client,message,args,db,Discord) =>{
-        const response = await get('https://dog.ceo/api/breeds/image/random');
+const Discord = require("discord.js");
+exports.run = async(client, message, args) => {
+const response = await get('https://dog.ceo/api/breeds/image/random');
   if (response.body.status !== 'success') return message.reply('The website for the API request had an error');
   const Link = response.body.message;
                     var embed = new Discord.RichEmbed()
@@ -10,7 +11,4 @@ module.exports.run = async(client,message,args,db,Discord) =>{
           .setFooter("Dog",client.user.avatarURL)
           .setTimestamp();
     message.channel.send(embed);
-    }
-exports.config = {
-    command :"dog"
 }
